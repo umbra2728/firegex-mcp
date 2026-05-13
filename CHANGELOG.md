@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-05-13
+
 ### Added
 - Initial release: 49 MCP tools wrapping Firegex's REST API (system + four modules).
 - Auto-managed JWT lifecycle (login, retry on 401, asyncio.Lock).
