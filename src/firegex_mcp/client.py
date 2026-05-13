@@ -90,7 +90,6 @@ class FiregexClient:
         self._http = httpx.AsyncClient(
             base_url=str(self._settings.base_url).rstrip("/"),
             timeout=self._settings.timeout_seconds,
-            verify=self._settings.verify_ssl,
         )
         return self
 

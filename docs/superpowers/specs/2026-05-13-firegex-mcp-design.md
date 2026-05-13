@@ -110,7 +110,6 @@ Pydantic-settings model with prefix `FIREGEX_MCP_` and optional `.env` loading.
 | `FIREGEX_MCP_BASE_URL` | `http://localhost:4444` | Firegex listener |
 | `FIREGEX_MCP_PASSWORD` | — (required) | Used in `/api/login` |
 | `FIREGEX_MCP_TIMEOUT_SECONDS` | `30.0` | `>0` |
-| `FIREGEX_MCP_VERIFY_SSL` | `true` | For HTTPS deployments |
 | `FIREGEX_MCP_LOG_LEVEL` | `INFO` | Literal: `DEBUG`/`INFO`/`WARNING`/`ERROR`/`CRITICAL` |
 
 `extra="ignore"`, `case_sensitive=False`, `env_file=".env"`.
@@ -131,7 +130,7 @@ FiregexError
 └── FiregexServerError           # 5xx
 ```
 
-**Lifecycle:** `async with FiregexClient(settings) as client: ...`. On enter, creates `httpx.AsyncClient(base_url=..., timeout=..., verify=verify_ssl)` and an `asyncio.Lock` used to serialise login.
+**Lifecycle:** `async with FiregexClient(settings) as client: ...`. On enter, creates `httpx.AsyncClient(base_url=..., timeout=...)` and an `asyncio.Lock` used to serialise login.
 
 **Method surface (≈ 48 methods):**
 
@@ -453,4 +452,4 @@ change_phj_destination(service_id: str, ip_dst: str, proxy_port: int) -> dict
 - **Resources.** Could expose `/api/nfregex/metrics` as an MCP Resource (Prometheus text) instead of a tool. Deferred — not needed in v0.1.
 - **Socket.io live updates.** MCP has no streaming primitive that maps naturally; revisit if the spec gains one.
 - **Multi-instance routing.** Out of scope for v0.1. A second instance can be added by configuring a second MCP server entry in Claude Desktop with a different `FIREGEX_MCP_BASE_URL`.
-- **Authenticated HTTPS with custom CA.** Currently `verify_ssl: bool`; if needed later, accept `ca_bundle: Path`.
+- **Authenticated HTTPS with custom CA.** Not currently supported (httpx uses the system trust store). If a use case appears, add `verify_ssl: bool` and/or `ca_bundle: Path`.

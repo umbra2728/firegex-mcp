@@ -25,5 +25,4 @@ class FiregexSettings(BaseSettings):
     base_url: HttpUrl = Field(default=HttpUrl("http://localhost:4444"))
     password: str
     timeout_seconds: float = Field(default=30.0, gt=0)
-    verify_ssl: bool = True
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"] = "INFO"

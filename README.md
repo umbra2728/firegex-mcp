@@ -28,7 +28,6 @@ All settings are env vars with the `FIREGEX_MCP_` prefix:
 | `FIREGEX_MCP_BASE_URL` | `http://localhost:4444` | Firegex base URL |
 | `FIREGEX_MCP_PASSWORD` | (required) | Used at `/api/login` |
 | `FIREGEX_MCP_TIMEOUT_SECONDS` | `30` | HTTP request timeout |
-| `FIREGEX_MCP_VERIFY_SSL` | `true` | Disable for self-signed HTTPS |
 | `FIREGEX_MCP_LOG_LEVEL` | `INFO` | `DEBUG`/`INFO`/`WARNING`/`ERROR`/`CRITICAL` |
 
 See [`.env.example`](.env.example) for a starter template.
