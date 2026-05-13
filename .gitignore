@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[oc]
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+.venv/
+.env
+
+# Tooling
+.coverage
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Local sibling clone of the Firegex upstream repo used as reference material,
+# not part of this package.
+/firegex/
