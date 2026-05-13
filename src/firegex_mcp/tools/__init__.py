@@ -9,8 +9,12 @@ from __future__ import annotations
 from mcp.server.fastmcp import FastMCP
 
 from firegex_mcp.client import FiregexClient
+from firegex_mcp.tools import firewall, nfproxy, nfregex, porthijack, system
 
 
 def register_all(mcp: FastMCP, client: FiregexClient) -> None:
-    # Submodules are wired in subsequent tasks.
-    pass
+    system.register(mcp, client)
+    nfregex.register(mcp, client)
+    nfproxy.register(mcp, client)
+    firewall.register(mcp, client)
+    porthijack.register(mcp, client)
